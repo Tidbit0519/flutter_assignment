@@ -6,6 +6,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import './text.dart';
+import './text_control.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,20 +45,19 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My Assignment App'),
+          title: Text('Assignment 1'),
         ),
-        body: _textIndex < _text.length
-        ? Column(
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            ElevatedButton(
-              onPressed: changeText, 
-              child: Text('Click here to change the display _text')
-            ),
-            Text(_text[_textIndex]),
-          ],
-        )
-        : Text('Done!'),
+        body: Center(
+          child: _textIndex < _text.length
+          ? Column(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              TextControl(changeText),
+              Texts(_text[_textIndex]),
+            ],
+          )
+          : Text('Done!'),
+        ),
       ),
     );
   }
